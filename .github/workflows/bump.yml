@@ -1,0 +1,32 @@
+name: Bump cask
+
+# Dispatched by the Lidless app repo's Release workflow with the new version and
+# sha256. It rewrites Casks/lidless.rb and commits the change.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+      sha256:
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update cask
+        env:
+          V: ${{ github.event.inputs.version }}
+          SHA: ${{ github.event.inputs.sha256 }}
+        run: |
+          set -euo pipefail
+          sed -i -E "s/version \"[^\"]+\"/version \"$V\"/" Casks/lidless.rb
+          sed -i -E "s/sha256 \"[^\"]+\"/sha256 \"$SHA\"/" Casks/lidless.rb
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "lidless $V"
+          git push
