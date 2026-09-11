@@ -5,7 +5,7 @@
 # truth. The Release workflow bumps the copy in the tap.
 cask "solodisplay" do
   version "0.2.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  sha256 "9bc359d48f56de90c963209ad3c2f866717c78752a6b475a628b961f0dba027a"
 
   url "https://github.com/fanckush/SoloDisplay/releases/download/v#{version}/SoloDisplay-#{version}.zip"
   name "SoloDisplay"
