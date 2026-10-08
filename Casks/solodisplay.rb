@@ -4,8 +4,8 @@
 # Casks/solodisplay.rb, not in the main app repo. It is kept here as the source of
 # truth. The Release workflow bumps the copy in the tap.
 cask "solodisplay" do
-  version "0.9.0"
-  sha256 "50e67762c289f317915ea16396c4a32e9626fd668845edabcb15cae909bba9ea"
+  version "0.10.0"
+  sha256 "ee7beb0a04e0829c0b661b1bb70455137b7238a9759a1c2f8a72594a2157a3c9"
 
   url "https://github.com/fanckush/SoloDisplay/releases/download/v#{version}/SoloDisplay-#{version}.zip"
   name "SoloDisplay"
